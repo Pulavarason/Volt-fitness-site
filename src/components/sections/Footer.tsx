@@ -9,6 +9,7 @@ import { navLinks, programs, plans } from "@/data/content";
 import { site, has, orPlaceholder, whatsappLink, telLink, mailLink } from "@/config/site";
 import { openEnquiry } from "@/lib/enquiry-bus";
 import { scrollToId } from "@/lib/lenis";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 
 function SocialIcon({ href, label, children }: { href: string | null; label: string; children: React.ReactNode }) {
   if (!href)
@@ -35,7 +36,7 @@ export function Footer() {
     <footer className="relative">
       {/* final CTA */}
       <div className="relative isolate overflow-hidden border-y border-line">
-        <Image src="/images/gym-gold-glass.jpg" alt="" fill sizes="100vw" className="-z-20 object-cover opacity-25" />
+        <ImagePlaceholder label="Footer background photo" className="-z-20 opacity-25" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/80 to-ink/60" />
         <div className="light-strip absolute inset-x-0 top-0" />
         <div className="container-x flex flex-col items-start justify-between gap-10 py-20 lg:flex-row lg:items-end lg:py-28">

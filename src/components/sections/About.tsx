@@ -1,6 +1,5 @@
 "use client";
 import { useRef } from "react";
-import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { Dumbbell, Cpu, UserCheck, Users } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -8,7 +7,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Counter } from "@/components/ui/Counter";
 import { stats } from "@/data/content";
 import { site } from "@/config/site";
-import { PlaceholderTag } from "@/components/ui/PlaceholderTag";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 
 const highlights = [
   { icon: Dumbbell, title: "Professional Training Environment", text: "Zoned floors built for focus." },
@@ -22,7 +21,6 @@ export function About() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const yBig = useTransform(scrollYProgress, [0, 1], ["6%", "-6%"]);
   const ySmall = useTransform(scrollYProgress, [0, 1], ["14%", "-14%"]);
-  const hasPlaceholderStats = stats.some((s) => s.placeholder);
 
   return (
     <section id="about" className="section-y relative">
@@ -31,26 +29,14 @@ export function About() {
           {/* imagery */}
           <div className="relative lg:col-span-6">
             <motion.div style={{ y: yBig }} className="brackets group relative aspect-[4/5] overflow-hidden bg-graphite">
-              <Image
-                src="/images/gym-gold-glass.jpg"
-                alt="Mirrored workout zone at VOLTT Fitness Studio glowing with warm LED light"
-                fill
-                sizes="(min-width:1024px) 46vw, 90vw"
-                className="object-cover object-[35%_50%] transition-transform duration-[1400ms] ease-[var(--ease-expo)] group-hover:scale-105"
-              />
+              <ImagePlaceholder label="About photo" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
             </motion.div>
             <motion.div
               style={{ y: ySmall }}
               className="absolute -bottom-10 right-[-4%] hidden aspect-[4/3] w-[48%] overflow-hidden border-[6px] border-ink bg-graphite shadow-2xl sm:block"
             >
-              <Image
-                src="/images/gym-dumbbells.jpg"
-                alt="Dumbbell rack at VOLTT Fitness Studio"
-                fill
-                sizes="(min-width:1024px) 22vw, 40vw"
-                className="object-cover"
-              />
+              <ImagePlaceholder label="About detail photo" />
             </motion.div>
           </div>
 
@@ -85,18 +71,11 @@ export function About() {
               <Reveal key={s.label} delay={i * 0.08} className={i > 0 ? "lg:border-l lg:border-line lg:pl-8" : ""}>
                 <dd className="display text-[clamp(3rem,7vw,5.5rem)] text-white">
                   <Counter to={s.value} suffix={s.suffix} />
-                  {s.placeholder && site.showPlaceholderMarkers && <span className="ml-1 align-top text-2xl text-amber">*</span>}
                 </dd>
                 <dt className="mt-2 font-display text-sm font-semibold uppercase tracking-[0.22em] text-mist">{s.label}</dt>
               </Reveal>
             ))}
           </dl>
-          {hasPlaceholderStats && site.showPlaceholderMarkers && (
-            <p className="mt-8 flex items-center gap-3 text-xs text-mist">
-              <PlaceholderTag>Placeholder</PlaceholderTag>
-              * Sample figures — editable in <code className="text-silver">src/data/content.ts</code> until the studio confirms real numbers.
-            </p>
-          )}
         </div>
       </div>
     </section>

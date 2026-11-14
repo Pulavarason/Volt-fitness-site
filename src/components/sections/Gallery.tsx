@@ -1,6 +1,5 @@
 "use client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronLeft, ChevronRight, X, Maximize2 } from "lucide-react";
 import { gallery, galleryCategories, type GalleryImage } from "@/data/content";
@@ -8,6 +7,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/ui/Reveal";
 import { lockScroll } from "@/lib/lenis";
 import { cn, pad } from "@/lib/utils";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 
 function Lightbox({ items, index, onClose, onIndex }: { items: GalleryImage[]; index: number; onClose: () => void; onIndex: (i: number) => void }) {
   const [dir, setDir] = useState(1);
@@ -106,16 +106,9 @@ function Lightbox({ items, index, onClose, onIndex }: { items: GalleryImage[]; i
             }}
             className="relative flex max-h-full max-w-full cursor-grab flex-col items-center active:cursor-grabbing"
           >
-            <Image
-              src={item.src}
-              alt={item.alt}
-              width={item.width}
-              height={item.height}
-              sizes="(min-width:1024px) 70vw, 94vw"
-              priority
-              draggable={false}
-              className="max-h-[72svh] w-auto max-w-full select-none object-contain"
-            />
+            <div className="relative h-[60svh] w-[min(80vw,50rem)] max-h-[72svh] overflow-hidden" style={{ aspectRatio: item.ratio }}>
+              <ImagePlaceholder label="Gallery photo" />
+            </div>
             <figcaption className="mt-4 text-center text-sm text-silver">
               <span className="mr-3 font-display text-xs font-semibold uppercase tracking-[0.25em] text-amber">{item.category}</span>
               {item.alt}
@@ -208,14 +201,7 @@ export function Gallery() {
                   className="group relative block w-full overflow-hidden bg-graphite"
                   style={{ aspectRatio: g.ratio }}
                 >
-                  <Image
-                    src={g.src}
-                    alt={g.alt}
-                    fill
-                    sizes="(min-width:1024px) 28vw, 46vw"
-                    className="object-cover transition-transform duration-[1400ms] ease-[var(--ease-expo)] group-hover:scale-110"
-                    style={{ objectPosition: g.position }}
-                  />
+                  <ImagePlaceholder label="Add gallery photo" />
                   <span className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/0 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
                   <span className="absolute inset-x-0 bottom-0 flex translate-y-3 items-center justify-between p-4 opacity-0 transition-all duration-500 ease-[var(--ease-expo)] group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
                     <span className="font-display text-sm font-bold uppercase tracking-[0.22em] text-white">{g.category}</span>

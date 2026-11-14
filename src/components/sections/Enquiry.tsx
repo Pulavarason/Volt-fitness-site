@@ -1,6 +1,5 @@
 "use client";
 import { FormEvent, useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { AlertTriangle, CheckCircle2, Loader2, ShieldCheck } from "lucide-react";
 import { plans } from "@/data/content";
@@ -12,6 +11,7 @@ import { Button } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/icons";
 import { site, whatsappLink, telLink, has } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 
 const GOALS = [
   "Build muscle",
@@ -114,7 +114,7 @@ export function Enquiry() {
 
   return (
     <section id="enquiry" className="relative isolate overflow-hidden">
-      <Image src="/images/gym-dark.jpg" alt="" fill sizes="100vw" className="-z-20 object-cover opacity-30" />
+      <ImagePlaceholder label="Enquiry background photo" className="-z-20 opacity-30" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-ink via-ink/85 to-ink" />
 
       <div className="container-x section-y grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-20">

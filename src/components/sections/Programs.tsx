@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { Activity, Dumbbell, Flame, HeartPulse, Plus, Sprout, TrendingUp, UserCheck, Check, type LucideIcon } from "lucide-react";
 import { programs, type Program } from "@/data/content";
@@ -9,6 +8,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { openEnquiry } from "@/lib/enquiry-bus";
 import { cn, pad } from "@/lib/utils";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 
 const icons: Record<Program["icon"], LucideIcon> = {
   dumbbell: Dumbbell,
@@ -28,15 +28,7 @@ function ProgramCard({ p, i, wide }: { p: Program; i: number; wide?: boolean }) 
   return (
     <Reveal as="article" delay={(i % 3) * 0.08} className={cn("group flex bg-graphite", wide ? "lg:col-span-3 lg:flex-row" : "flex-col")}>
       <div className={cn("brackets relative overflow-hidden bg-ink", wide ? "aspect-[16/10] lg:aspect-auto lg:w-1/2" : "aspect-[16/10]")}>
-        <Image
-          src={p.image}
-          alt={p.alt}
-          fill
-          sizes={wide ? "(min-width:1024px) 42vw, 92vw" : "(min-width:1024px) 28vw, (min-width:640px) 45vw, 92vw"}
-          className="object-cover transition-transform duration-[1400ms] ease-[var(--ease-expo)] group-hover:scale-110"
-          style={{ objectPosition: p.position }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-graphite via-ink/20 to-transparent" />
+        <ImagePlaceholder label="Program photo" />
         <span className="absolute left-5 top-5 z-10 font-sans text-xs font-medium tracking-[0.2em] text-white/80">{pad(i + 1)}</span>
         <span className="absolute bottom-0 left-0 z-10 flex size-14 items-center justify-center bg-amber text-ink">
           <Icon className="size-6" strokeWidth={1.8} />

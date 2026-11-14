@@ -44,7 +44,7 @@ export const facilities: Facility[] = [
   {
     id: "strength",
     name: "Strength Training",
-    image: "/images/gym-main.jpg",
+    image: "",
     alt: "Plate-loaded strength machines under warm amber lighting at VOLTT Fitness Studio",
     description:
       "Heavy-duty strength stations built for serious, progressive training — set in a focused, low-glare floor.",
@@ -53,7 +53,7 @@ export const facilities: Facility[] = [
   {
     id: "free-weights",
     name: "Free Weights",
-    image: "/images/gym-dumbbells.jpg",
+    image: "",
     alt: "Rows of dumbbells racked beside a glass wall lit by warm LED strips",
     description:
       "A full dumbbell rack lined up against the illuminated glass wall — grab, lift, rack, repeat.",
@@ -62,7 +62,7 @@ export const facilities: Facility[] = [
   {
     id: "cardio",
     name: "Cardio Equipment",
-    image: "/images/gym-cardio.jpg",
+    image: "",
     alt: "Treadmills and cardio machines on the VOLTT cardio floor",
     description:
       "Treadmills and cardio machines for warm-ups, conditioning and endurance work.",
@@ -71,7 +71,7 @@ export const facilities: Facility[] = [
   {
     id: "functional",
     name: "Functional Training",
-    image: "/images/gym-floor.jpg",
+    image: "",
     alt: "Green turf training area next to the machine floor",
     description:
       "Open turf space for movement-based and functional work. Equipment details can be updated by the studio.",
@@ -80,7 +80,7 @@ export const facilities: Facility[] = [
   {
     id: "machines",
     name: "Machine Training",
-    image: "/images/gym-machines.jpg",
+    image: "",
     alt: "Plate-loaded leg press and press machines on the VOLTT training floor",
     description:
       "Plate-loaded and selectorised machines for guided, controlled training across every major muscle group.",
@@ -89,7 +89,7 @@ export const facilities: Facility[] = [
   {
     id: "personal",
     name: "Personal Training",
-    image: "/images/gym-dark.jpg",
+    image: "",
     alt: "Dimly lit VOLTT training floor with machines and cable stations",
     description:
       "One-to-one coaching on the floor. Trainer availability and rates are shared on enquiry.",
@@ -98,7 +98,7 @@ export const facilities: Facility[] = [
   {
     id: "workout-areas",
     name: "Workout Areas",
-    image: "/images/gym-gold-glass.jpg",
+    image: "",
     alt: "Training area with mirrored glass and warm LED light strips",
     description:
       "Mirrored, well-lit workout zones with room to move between stations.",
@@ -126,7 +126,7 @@ export const programs: Program[] = [
     id: "strength",
     name: "Strength Training",
     icon: "dumbbell",
-    image: "/images/gym-machines.jpg",
+    image: "",
     alt: "Strength machines on the VOLTT floor",
     description: "Structured resistance training focused on building real, usable strength.",
     benefits: ["Progressive, structured sessions", "Technique-first approach", "Works for every experience level"],
@@ -139,7 +139,7 @@ export const programs: Program[] = [
     id: "muscle",
     name: "Muscle Building",
     icon: "trending",
-    image: "/images/gym-dumbbells.jpg",
+    image: "",
     alt: "Dumbbell rack at VOLTT Fitness Studio",
     description: "Hypertrophy-focused training with the free weights and machines to support it.",
     benefits: ["Split-based programming", "Full free-weight selection", "Guidance on form and volume"],
@@ -152,7 +152,7 @@ export const programs: Program[] = [
     id: "weight",
     name: "Weight Management",
     icon: "flame",
-    image: "/images/gym-cardio.jpg",
+    image: "",
     alt: "Cardio floor at VOLTT Fitness Studio",
     description: "A balanced mix of resistance and cardio to support your weight goals.",
     benefits: ["Cardio + strength combined", "Sustainable weekly routines", "Supportive environment"],
@@ -165,7 +165,7 @@ export const programs: Program[] = [
     id: "personal",
     name: "Personal Training",
     icon: "user",
-    image: "/images/gym-dark.jpg",
+    image: "",
     alt: "VOLTT training floor in low light",
     description: "One-to-one attention to plan, coach and keep you accountable.",
     benefits: ["Personalised session plans", "Hands-on form correction", "Accountability and pacing"],
@@ -178,7 +178,7 @@ export const programs: Program[] = [
     id: "functional",
     name: "Functional Fitness",
     icon: "activity",
-    image: "/images/gym-floor.jpg",
+    image: "",
     alt: "Turf training area at VOLTT",
     description: "Movement-based training for strength, mobility and everyday capability.",
     benefits: ["Full-body movement patterns", "Open turf training space", "Builds work capacity"],
@@ -191,7 +191,7 @@ export const programs: Program[] = [
     id: "general",
     name: "General Fitness",
     icon: "heart",
-    image: "/images/gym-gold-glass.jpg",
+    image: "",
     alt: "Workout area at VOLTT Fitness Studio",
     description: "A well-rounded routine to stay active, energised and consistent.",
     benefits: ["Balanced weekly routine", "Cardio and strength variety", "Flexible, self-paced"],
@@ -204,7 +204,7 @@ export const programs: Program[] = [
     id: "beginner",
     name: "Beginner Training",
     icon: "sprout",
-    image: "/images/gym-main.jpg",
+    image: "",
     alt: "Welcoming VOLTT training floor",
     description:
       "New to the gym? Start with the basics, learn the equipment and build confidence at your own pace.",
@@ -316,14 +316,14 @@ export type GalleryImage = {
 };
 
 export const gallery: GalleryImage[] = [
-  { src: "/images/gym-main.jpg", alt: "VOLTT training floor with plate-loaded machines and amber LED lighting", category: "Gym Interior", width: 1546, height: 1052, ratio: "4/3" },
-  { src: "/images/gym-dumbbells.jpg", alt: "Dumbbell rack against the illuminated glass wall", category: "Equipment", width: 696, height: 504, ratio: "4/5", position: "40% 50%" },
-  { src: "/images/gym-gold-glass.jpg", alt: "Mirrored workout area with warm light strips", category: "Gym Interior", width: 700, height: 504, ratio: "1/1" },
-  { src: "/images/gym-machines.jpg", alt: "Plate-loaded leg press and benches", category: "Training", width: 700, height: 496, ratio: "4/3" },
-  { src: "/images/gym-stairs.jpg", alt: "Stair-climber machines on the cardio side of the floor", category: "Equipment", width: 696, height: 504, ratio: "4/5", position: "55% 50%" },
-  { src: "/images/gym-floor.jpg", alt: "Turf training area beside the machine floor", category: "Training", width: 700, height: 504, ratio: "1/1" },
-  { src: "/images/gym-cardio.jpg", alt: "Treadmills and cardio machines", category: "Facilities", width: 696, height: 504, ratio: "4/3" },
-  { src: "/images/gym-dark.jpg", alt: "VOLTT floor in low light with cable stations", category: "Gym Interior", width: 700, height: 504, ratio: "4/5", position: "35% 50%" },
+  { src: "gallery-slot-01", alt: "Add a gym interior photo", category: "Gym Interior", width: 1546, height: 1052, ratio: "4/3" },
+  { src: "gallery-slot-02", alt: "Add an equipment photo", category: "Equipment", width: 696, height: 504, ratio: "4/5" },
+  { src: "gallery-slot-03", alt: "Add a gym interior photo", category: "Gym Interior", width: 700, height: 504, ratio: "1/1" },
+  { src: "gallery-slot-04", alt: "Add a training photo", category: "Training", width: 700, height: 496, ratio: "4/3" },
+  { src: "gallery-slot-05", alt: "Add an equipment photo", category: "Equipment", width: 696, height: 504, ratio: "4/5" },
+  { src: "gallery-slot-06", alt: "Add a training photo", category: "Training", width: 700, height: 504, ratio: "1/1" },
+  { src: "gallery-slot-07", alt: "Add a facilities photo", category: "Facilities", width: 696, height: 504, ratio: "4/3" },
+  { src: "gallery-slot-08", alt: "Add a gym interior photo", category: "Gym Interior", width: 700, height: 504, ratio: "4/5" },
 ];
 
 /* ───────────── Testimonials (SAMPLE placeholders) ───────────── */

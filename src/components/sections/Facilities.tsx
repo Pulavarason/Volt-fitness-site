@@ -1,12 +1,12 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { facilities } from "@/data/content";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/ui/Reveal";
 import { PlaceholderTag } from "@/components/ui/PlaceholderTag";
 import { cn, pad } from "@/lib/utils";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 
 export function Facilities() {
   const [active, setActive] = useState(0);
@@ -90,15 +90,7 @@ export function Facilities() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <Image
-                    src={current.image}
-                    alt={current.alt}
-                    fill
-                    sizes="(min-width:1024px) 55vw, 100vw"
-                    className="object-cover"
-                    style={{ objectPosition: current.position }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent" />
+                  <ImagePlaceholder label="Facility photo" />
                 </motion.div>
               </AnimatePresence>
               <div className="absolute bottom-0 left-0 z-10 flex items-end justify-between gap-4 p-7">
@@ -115,15 +107,7 @@ export function Facilities() {
             <Reveal as="li" key={f.id} delay={(i % 2) * 0.08}>
               <article className="group">
                 <div className="brackets relative aspect-[4/3] overflow-hidden bg-ink">
-                  <Image
-                    src={f.image}
-                    alt={f.alt}
-                    fill
-                    sizes="(min-width:640px) 45vw, 92vw"
-                    className="object-cover transition-transform duration-[1400ms] ease-[var(--ease-expo)] group-hover:scale-110"
-                    style={{ objectPosition: f.position }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent" />
+                  <ImagePlaceholder label="Facility photo" />
                   <span className="absolute left-5 top-5 font-sans text-xs font-medium tracking-[0.2em] text-amber">{pad(i + 1)}</span>
                 </div>
                 <div className="mt-4 flex items-center gap-3">
